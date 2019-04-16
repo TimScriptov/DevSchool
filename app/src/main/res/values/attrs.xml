@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="languages" formatted="false">
-        <item>Русский</item>
-        <item>English</item>
-        <item>Spanish</item>
-        <item>Arabic</item>
-        <item>Deutsch</item>
-        <item>Italian</item>
-        <item>Українська</item>
-        <item>French</item>
-        <item>Chinese</item>
+    <string-array name="theme">
+        <item>Auto</item>
+        <item>Day</item>
+        <item>Night</item>
     </string-array>
 
-    <string-array name="language_values" formatted="false">
-        <item>ru</item>
-        <item>en</item>
-        <item>es</item>
-        <item>ar</item>
-        <item>de</item>
-        <item>it</item>
-        <item>uk</item>
-        <item>fr</item>
-        <item>zh-CN</item>
+    <string-array name="theme_values">
+        <item>auto</item>
+        <item>day</item>
+        <item>night</item>
     </string-array>
 
     <string-array name="font_size" formatted="false">

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/general">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="translate"
+            android:icon="@drawable/ic_g_translate"
+            android:title="@string/translator" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cache"
+            android:summary="@string/cache_summary"
+            android:icon="@drawable/ic_cache"
+            android:title="@string/use_cache" />
+
+        <Preference
+            android:key="clear_cache"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/clear_cache"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/appearance">
+
+        <ListPreference
+            android:defaultValue="auto"
+            android:entries="@array/theme"
+            android:entryValues="@array/theme_values"
+            android:icon="@drawable/ic_theme"
+            android:key="theme"
+            android:title="@string/theme" />
+
+        <ListPreference
+            android:defaultValue="100%"
+            android:dialogTitle="@string/select_font_size"
+            android:entries="@array/font_size"
+            android:entryValues="@array/font_size"
+            android:key="font_size"
+            android:icon="@drawable/ic_font_size"
+            android:title="@string/font_size" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
