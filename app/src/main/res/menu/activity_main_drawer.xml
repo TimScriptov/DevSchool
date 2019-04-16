@@ -4,22 +4,26 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_bookmarks"
-            android:icon="@drawable/ic_star"
-            android:title="Bookmarks" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings"
-            android:title="Settings" />
-        <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/ic_info"
-            android:title="About" />
-        <item
-            android:id="@+id/nav_exit"
-            android:icon="@drawable/ic_exit"
-            android:title="Exit" />
+        <item android:title="Menu">
+            <menu>
+                <item
+                    android:id="@+id/nav_bookmarks"
+                    android:icon="@drawable/ic_star"
+                    android:title="Bookmarks" />
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_settings"
+                    android:title="Settings" />
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_info"
+                    android:title="About" />
+                <item
+                    android:id="@+id/nav_exit"
+                    android:icon="@drawable/ic_exit"
+                    android:title="Exit" />
+            </menu>
+        </item>
     </group>
 
     <item android:title="Communicate">

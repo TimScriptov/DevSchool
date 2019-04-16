@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.premium);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
