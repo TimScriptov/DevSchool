@@ -13,7 +13,7 @@
     <string name="exit">Exit</string>
     <string name="general">General</string>
     <string name="appearance">Appearance</string>
-    <string name="font_size">Size</string>
+    <string name="font_size">Font size</string>
     <string name="copyright">©2019 Ramzan Elmurzaev</string>
     <string name="grid_view">Grid view</string>
     <string name="bookmarks">Bookmarks</string>
@@ -31,11 +31,7 @@
     <string name="no_bookmarks">No bookmarks</string>
     <string name="version_available">Version available</string>
     <string name="privacy">Privacy policy</string>
-    <string name="use_cache">Use cache</string>
     <string name="theme">Theme</string>
-    <string name="clear_cache">Clear cache</string>
-    <string name="cache_summary">Increases speed, saves traffic.</string>
-    <string name="cache_cleared">Cache is cleared</string>
     <string name="translator">Translator</string>
 
 </resources>

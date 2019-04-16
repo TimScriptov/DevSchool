@@ -9,18 +9,6 @@
             android:icon="@drawable/ic_g_translate"
             android:title="@string/translator" />
 
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="cache"
-            android:summary="@string/cache_summary"
-            android:icon="@drawable/ic_cache"
-            android:title="@string/use_cache" />
-
-        <Preference
-            android:key="clear_cache"
-            android:icon="@drawable/ic_delete"
-            android:title="@string/clear_cache"/>
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/appearance">
