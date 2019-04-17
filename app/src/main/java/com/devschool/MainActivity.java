@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+        Toasty.success(this, getString(R.string.premium_activated)).show();
         fab.hide();
     }
 

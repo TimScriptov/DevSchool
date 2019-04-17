@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.devschool.utils.Dialogs;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class AboutActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,7 +36,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View p1) {
         switch (p1.getId()) {
             case R.id.rateApp:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.devschool")));
+                Dialogs.rate(this);
                 break;
             case R.id.moreApps:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:Ramzan Elmurzaev")));

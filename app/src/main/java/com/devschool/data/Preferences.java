@@ -21,4 +21,11 @@ public final class Preferences {
         return preferences.getBoolean("translate", false);
     }
 
+    public static void setRated() {
+        preferences.edit().putBoolean("isRated", true).apply();
+    }
+
+    public static boolean isRated() {
+        return preferences.getBoolean("isRated", false);
+    }
 }
