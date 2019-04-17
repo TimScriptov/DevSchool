@@ -5,6 +5,9 @@ import android.app.Application;
 import android.content.Context;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.devschool.module.Ads;
+import com.devschool.module.DayNight;
+
 import org.jetbrains.annotations.Contract;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;

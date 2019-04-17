@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Lato;
+    src: url(file:///android_asset/fonts/Lato.ttf);
+}
+
+* {
+    font-family: Lato;
+}

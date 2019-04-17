@@ -5,6 +5,6 @@ import com.devschool.BuildConfig;
 public final class Constants {
 
     public static final String PREMIUM = BuildConfig.DEBUG ? "android.test.purchased" : "premium";
-    public static final String SERVER = "https://elmurzaev.github.io/devschool";
+    public static final String SERVER = "https://elmurzaev.github.io/devschool/";
 
 }

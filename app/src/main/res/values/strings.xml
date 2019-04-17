@@ -32,5 +32,10 @@
     <string name="privacy">Privacy policy</string>
     <string name="theme">Theme</string>
     <string name="translator">Translator</string>
+    <string name="contact_us">Contact us</string>
+    <string name="share">Share</string>
+    <string name="communicate">Communicate</string>
+    <string name="menu">Menu</string>
+    <string name="application">Application</string>
 
 </resources>
