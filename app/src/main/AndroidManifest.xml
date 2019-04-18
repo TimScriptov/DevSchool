@@ -26,12 +26,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ItemActivity"
+            android:configChanges="screenSize|orientation"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".SettingsActivity"
             android:configChanges="screenSize|orientation"
             android:label="@string/settings"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AboutActivity"
+            android:label="@string/about"
             android:parentActivityName=".MainActivity" />
 
         <meta-data

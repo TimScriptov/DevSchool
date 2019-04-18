@@ -1,13 +1,33 @@
-@font-face {
-    font-family: Lato;
-    src: url(file:///android_asset/fonts/Lato.ttf);
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 * {
-    font-family: Lato;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
 	background: #282828;
 	color: #EEEEEE;
 }
+h1,h2,h3,h4,h5h,h6,p,li,table,pre,code,abbr,span{
+    color: #EEEEEE;
+}
+div.w3-example{
+    background-color: #383838;
+    margin: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+div.w3-note{
+    background-color: #383838;
+}
+div.w3-code{
+    background-color: #282828;
+}
+table.w3-table-all tr:nth-child(even) {
+    background-color: #282828;
+}
+table.w3-table-all tr:nth-child(odd) {
+    background-color: #383838;
+}
+div.w3-light-grey{background-color: #383838!important;}
+#google_translate_element{margin-top: 20px;}

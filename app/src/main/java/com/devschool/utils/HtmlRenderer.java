@@ -8,12 +8,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class HtmlRenderer {
 
-    public String renderHtml(String html) {
+    public static String renderHtml(String html) {
         return html.replace("<head>", "<head>" + getStyle() + (Preferences.translatePluginEnabled() ? getTranslatePlugin() : ""));
     }
 
     @NotNull
-    private String getStyle() {
+    private static String getStyle() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<style>");
 
@@ -22,18 +22,18 @@ public class HtmlRenderer {
         } else stringBuilder.append(FileReader.fromAssets("dark_style.css"));
 
         stringBuilder
-                .append("* {font-size:").append(getFontSize()).append(";}")
+                .append("*,h1,h2,h3,h4,h5h,h6,p,li,table,pre,code,abbr,span,.w3-example{font-size:").append(getFontSize()).append(";}")
                 .append("</style>");
 
         return stringBuilder.toString();
     }
 
-    private String getFontSize() {
+    private static String getFontSize() {
         return Preferences.getFontSize();
     }
 
     @NotNull
-    private String getTranslatePlugin() {
+    private static String getTranslatePlugin() {
         return FileReader.fromAssets("tt.html");
     }
 }

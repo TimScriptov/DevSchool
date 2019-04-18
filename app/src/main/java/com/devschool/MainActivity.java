@@ -24,6 +24,7 @@ import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.Constants;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devschool.adapters.ListAdapter;
+import com.devschool.data.Preferences;
 import com.devschool.module.Ads;
 import com.devschool.module.ListParser;
 import com.devschool.ui.BookmarksFragment;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     private FloatingActionButton fab;
     private Toolbar toolbar;
     private int REQUEST_CODE_SETTINGS = 0;
+    private int REQUEST_CODE_IS_READ = 1;
     private BillingProcessor billing;
     private ListAdapter listAdapter;
     private Ads ads;
@@ -69,8 +71,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        listAdapter = new ListParser(ListParser.Type.HTML, this).getListAdapter();
         listItems.setLayoutManager(new LinearLayoutManager(this));
-        listItems.setAdapter(new ListParser(ListParser.Type.HTML, this).getListAdapter());
+        listItems.setAdapter(listAdapter);
 
         ads = new Ads();
         billing = new BillingProcessor(this, null, this);
@@ -89,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main_menu, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setOnQueryTextListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -136,7 +141,10 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     @Override
     public void openLesson(String url, int position) {
         if (Utils.isNetworkAvailable()) {
-
+            startActivityForResult(new Intent(this, ItemActivity.class)
+                    .putExtra("url", url)
+                    .putExtra("itemsCount", listAdapter.getItemCount())
+                    .putExtra("position", position), REQUEST_CODE_IS_READ);
         } else Dialogs.error(this, getString(R.string.no_connection));
     }
 
@@ -174,6 +182,23 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
         if (!billing.isPurchased(PREMIUM)) {
             ads.loadInterstitial(this);
             fab.show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        billing.handleActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_IS_READ) {
+            if (resultCode == RESULT_OK) {
+                int position = data.getIntExtra("position", 0);
+                listAdapter.notifyItemChanged(position);
+            }
+            if (!Preferences.isRated()) Dialogs.rate(this);
+            else if (!billing.isPurchased(PREMIUM)) {
+                ads.showInsAd();
+            }
         }
     }
 }

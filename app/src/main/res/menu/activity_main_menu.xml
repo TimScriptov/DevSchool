@@ -9,11 +9,5 @@
 		android:id="@+id/search"
 		android:icon="@drawable/ic_search"
         android:title="@string/search"/>
-	
-	<item
-		app:showAsAction="always"
-		android:id="@+id/continue_lesson"
-		android:icon="@drawable/ic_bookmark"
-        android:title="@string/continue_lesson"/>
 
 </menu>

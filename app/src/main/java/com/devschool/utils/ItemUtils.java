@@ -12,7 +12,7 @@ public class ItemUtils {
         return cursor.getCount() != 0;
     }
 
-    public static boolean markAsRead(String url, String title) {
+    public static boolean markRead(String url, String title) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("Url", url);
         contentValues.put("Title", title);

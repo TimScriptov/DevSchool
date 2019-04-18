@@ -46,7 +46,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> im
     @Override
     public void onBindViewHolder(@NotNull final ListAdapter.ViewHolder holder, final int position) {
         final String text = itemsText.get(position);
-        final String url = SERVER + itemsSrc.get(position);
+        final String url = SERVER + "html/" + itemsSrc.get(position);
 
         holder.itemText.setText(text);
         holder.item.setOnClickListener(new View.OnClickListener() {
