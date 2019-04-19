@@ -29,16 +29,16 @@ public class Dialogs {
         View view = LayoutInflater.from(context).inflate(R.layout.rate, null);
         RatingBar ratingBar = view.findViewById(R.id.rating_bar);
 
-        final AlertDialog dialog = new AlertDialog.Builder(context).setView(view).create();
+        final AlertDialog dialog = new AlertDialog.Builder(context).setCancelable(false).setView(view).create();
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 if (rating > 2) {
-                    Preferences.setRated();
                     context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.devschool")));
                 } else Toasty.info(context, R.string.thanks).show();
                 dialog.dismiss();
+                Preferences.setRated();
             }
         });
         dialog.show();

@@ -26,9 +26,9 @@ import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devschool.adapters.ListAdapter;
 import com.devschool.data.Preferences;
 import com.devschool.module.Ads;
-import com.devschool.module.ListParser;
 import com.devschool.ui.BookmarksFragment;
 import com.devschool.utils.Dialogs;
+import com.devschool.utils.ListParser;
 import com.devschool.utils.Utils;
 import com.devschool.view.MainView;
 
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
 
         ads = new Ads();
         billing = new BillingProcessor(this, null, this);
+        setTitle("HTML");
     }
 
     @Override
@@ -100,6 +101,16 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     @Override
     public boolean onNavigationItemSelected(@NotNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.html:
+                listAdapter = new ListParser(ListParser.Type.HTML, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("HTML");
+                break;
+            case R.id.css:
+                listAdapter = new ListParser(ListParser.Type.CSS, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("CSS");
+                break;
             case R.id.nav_bookmarks:
                 new BookmarksFragment().show(getSupportFragmentManager(), null);
                 break;
@@ -144,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
             startActivityForResult(new Intent(this, ItemActivity.class)
                     .putExtra("url", url)
                     .putExtra("itemsCount", listAdapter.getItemCount())
+                    .putExtra("itemsSrc", listAdapter.getItemsSrc())
                     .putExtra("position", position), REQUEST_CODE_IS_READ);
         } else Dialogs.error(this, getString(R.string.no_connection));
     }

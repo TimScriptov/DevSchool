@@ -29,8 +29,8 @@ public class BookmarksFragment extends DialogFragment {
         Cursor cursor = Bookmarks.getAllBookmarks();
         if (cursor.getCount() > 0) {
             while (cursor.moveToNext()) {
-                itemsSrc.add(cursor.getString(1));
-                itemsText.add(cursor.getString(2));
+                itemsSrc.add(cursor.getString(0));
+                itemsText.add(cursor.getString(1));
             }
         }
     }

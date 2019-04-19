@@ -17,12 +17,16 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import static com.devschool.data.Constants.SERVER;
 import static com.devschool.utils.ItemUtils.isRead;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> implements Filterable {
     private SearchFilter filter;
     private ArrayList<String> itemsText;
+
+    public ArrayList<String> getItemsSrc() {
+        return itemsSrc;
+    }
+
     private ArrayList<String> itemsSrc;
     private MainView mainView;
 
@@ -46,7 +50,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> im
     @Override
     public void onBindViewHolder(@NotNull final ListAdapter.ViewHolder holder, final int position) {
         final String text = itemsText.get(position);
-        final String url = SERVER + "html/" + itemsSrc.get(position);
+        final String url = itemsSrc.get(position);
 
         holder.itemText.setText(text);
         holder.item.setOnClickListener(new View.OnClickListener() {

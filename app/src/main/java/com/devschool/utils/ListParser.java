@@ -1,8 +1,9 @@
-package com.devschool.module;
+package com.devschool.utils;
 
 import com.devschool.App;
 import com.devschool.R;
 import com.devschool.adapters.ListAdapter;
+import com.devschool.data.Constants;
 import com.devschool.view.MainView;
 
 import org.w3c.dom.Document;
@@ -29,7 +30,7 @@ public class ListParser {
                         raw_id = R.raw.html_items;
                         break;
                     case CSS:
-                        raw_id = 0;
+                        raw_id = R.raw.css_items;
                 }
                 InputStream is = App.getContext().getResources().openRawResource(raw_id);
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -39,7 +40,7 @@ public class ListParser {
                 NodeList items = doc.getElementsByTagName("item");
                 for (int x = 0; x < items.getLength(); x++) {
                     this.itemsText.add(items.item(x).getTextContent());
-                    itemsSrc.add(items.item(x).getAttributes().getNamedItem("src").getNodeValue());
+                    itemsSrc.add(Constants.SERVER + items.item(x).getAttributes().getNamedItem("src").getNodeValue());
                 }
             } catch (Exception ignored) {
             }

@@ -19,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import static com.devschool.data.Constants.SERVER;
 import static com.devschool.utils.ItemUtils.isRead;
 
 public class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapter.ViewHolder> {
@@ -43,7 +42,7 @@ public class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapter.View
     @Override
     public void onBindViewHolder(@NotNull final BookmarksAdapter.ViewHolder holder, final int position) {
         final String text = itemsText.get(position);
-        final String url = SERVER + itemsSrc.get(position);
+        final String url = itemsSrc.get(position);
 
         holder.itemText.setText(text);
         holder.item.setOnClickListener(new View.OnClickListener() {

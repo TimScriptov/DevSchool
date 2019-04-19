@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,8 @@ import com.devschool.utils.Utils;
 
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
+import java.util.ArrayList;
+
 import static com.devschool.utils.ItemUtils.isRead;
 
 public class ItemActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,7 +35,8 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
     private CollapsingToolbarLayout ctl;
     private int itemPosition;
     private int itemsCount;
-    private long time = 0;
+    private long time = System.currentTimeMillis();
+    private ArrayList<String> itemsSrc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         bookmark.setOnClickListener(this);
         itemPosition = getIntent().getIntExtra("position", 0);
         itemsCount = getIntent().getIntExtra("itemsCount", 0);
+        itemsSrc = (ArrayList<String>) getIntent().getSerializableExtra("itemsSrc");
 
         new PageLoader(getIntent().getStringExtra("url")).execute();
     }
@@ -64,7 +69,23 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         switch (v.getId()) {
-
+            case R.id.prev_item:
+                new PageLoader(itemsSrc.get(--itemPosition)).execute();
+                break;
+            case R.id.next_item:
+                new PageLoader(itemsSrc.get(++itemPosition)).execute();
+                break;
+            case R.id.bookmark_lesson:
+                bookmark.hide();
+                if (Bookmarks.isBookmarked(webView.getUrl())) {
+                    Bookmarks.remove(webView.getUrl());
+                    Snackbar.make(webView, R.string.bookmark_removed, BaseTransientBottomBar.LENGTH_SHORT).show();
+                    bookmark.setImageResource(R.drawable.ic_star_white);
+                } else if (Bookmarks.add(webView.getUrl(), webView.getTitle())) {
+                    Snackbar.make(webView, R.string.bookmarked, BaseTransientBottomBar.LENGTH_SHORT).show();
+                    bookmark.setImageResource(R.drawable.ic_star_yellow);
+                }
+                bookmark.show();
         }
     }
 
@@ -87,18 +108,8 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
 
     private void markRead() {
         if (ItemUtils.markRead(webView.getUrl(), webView.getTitle())) {
-            Snackbar.make(webView, R.string.marked_read, Snackbar.LENGTH_LONG).show();
             setResult(RESULT_OK, new Intent().putExtra("isRead", true).putExtra("position", itemPosition));
-            AsyncTask.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(2000);
-                        finish();
-                    } catch (InterruptedException ignored) {
-                    }
-                }
-            });
+            finish();
         }
     }
 
@@ -107,10 +118,14 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            prev_item.setVisibility(itemPosition != 0 ? View.VISIBLE : View.GONE);
-            next_item.setVisibility(itemPosition != itemsCount ? View.VISIBLE : View.GONE);
+            bookmark.setVisibility(View.GONE);
+            prev_item.setVisibility(View.GONE);
+            next_item.setVisibility(View.GONE);
+//            prev_item.setVisibility(itemPosition != 0 ? View.VISIBLE : View.GONE);
+//            next_item.setVisibility(itemPosition != itemsCount - 1 ? View.VISIBLE : View.GONE);
         }
 
+        @SuppressLint("RestrictedApi")
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
@@ -118,6 +133,9 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
             if (Bookmarks.isBookmarked(url)) {
                 bookmark.setImageResource(R.drawable.ic_star_yellow);
             } else bookmark.setImageResource(R.drawable.ic_star_white);
+            bookmark.show();
+            if (itemPosition != 0) prev_item.show();
+            if (itemPosition != itemsCount - 1) next_item.show();
         }
     }
 
