@@ -12,13 +12,13 @@ import com.google.android.gms.ads.MobileAds;
 
 public class Ads {
     private final String ADMOB_BANNER_ID = BuildConfig.DEBUG ? "ca-app-pub-3940256099942544/6300978111" : "ca-app-pub-9961237670339903/5503865823";
-    private final String ADMOB_INTERSTITIAL_ID = BuildConfig.DEBUG ? "ca-app-pub-3940256099942544/1033173712" : "ca-app-pub-9961237670339903/5897072903";
+    private final String ADMOB_INTERSTITIAL_ID = BuildConfig.DEBUG ? "ca-app-pub-3940256099942544/1033173712" : "ca-app-pub-9961237670339903/6915971686";
     private long lastShownTime = 0;
     private AdView adView;
     private InterstitialAd interstitialAd;
 
     public static void initialize(Context c) {
-        MobileAds.initialize(c, "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(c, "ca-app-pub-9961237670339903~5243797362");
     }
 
     public AdView getBanner(Context context) {
