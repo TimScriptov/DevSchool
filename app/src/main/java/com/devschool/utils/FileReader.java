@@ -22,7 +22,7 @@ public class FileReader {
             StringBuilder sb = new StringBuilder();
             BufferedReader br = new BufferedReader(new InputStreamReader(App.getContext().getAssets().open(path), "UTF-8"));
             String line;
-            while ((line = br.readLine()) != null) sb.append(line);
+            while ((line = br.readLine()) != null) sb.append(line).append("\n");
             return sb.toString();
         } catch (Exception exception) {
             return "<p style='color:red;'>Error:</p>" + Log.getStackTraceString(exception);
@@ -35,7 +35,7 @@ public class FileReader {
             StringBuilder sb = new StringBuilder();
             BufferedReader br = new BufferedReader(new InputStreamReader((new URL(url).openStream()), "UTF-8"));
             String line;
-            while ((line = br.readLine()) != null) sb.append(line);
+            while ((line = br.readLine()) != null) sb.append(line).append("\n");
             return sb.toString();
         } catch (Exception exception) {
             if (exception instanceof SSLException) {
