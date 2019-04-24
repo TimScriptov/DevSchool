@@ -6,41 +6,52 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/html"
-            android:checked="true"
             android:icon="@drawable/ic_html5"
             android:title="HTML" />
         <item
             android:id="@+id/css"
             android:icon="@drawable/ic_css3"
             android:title="CSS" />
-        <!--<item-->
-        <!--android:id="@+id/js"-->
-        <!--android:icon="@drawable/ic_javascript"-->
-        <!--android:title="JavaScript" />-->
-        <!--<item-->
-        <!--android:id="@+id/php"-->
-        <!--android:icon="@drawable/ic_php"-->
-        <!--android:title="PHP" />-->
-        <!--<item-->
-        <!--android:id="@+id/bootstrap"-->
-        <!--android:icon="@drawable/ic_bootstrap"-->
-        <!--android:title="Bootstrap" />-->
-        <!--<item-->
-        <!--android:id="@+id/jquery"-->
-        <!--android:icon="@drawable/ic_jquery"-->
-        <!--android:title="jQuery" />-->
-        <!--<item-->
-        <!--android:id="@+id/java"-->
-        <!--android:icon="@drawable/ic_java"-->
-        <!--android:title="Java" />-->
-        <!--<item-->
-        <!--android:id="@+id/json"-->
-        <!--android:icon="@drawable/ic_json"-->
-        <!--android:title="JSON" />-->
-        <!--<item-->
-        <!--android:id="@+id/xml"-->
-        <!--android:icon="@drawable/ic_xml"-->
-        <!--android:title="XML" />-->
+        <item
+            android:id="@+id/js"
+            android:icon="@drawable/ic_javascript"
+            android:title="JavaScript" />
+        <item
+            android:id="@+id/jquery"
+            android:icon="@drawable/ic_jquery"
+            android:title="jQuery" />
+        <item
+            android:id="@+id/php"
+            android:icon="@drawable/ic_php"
+            android:title="PHP" />
+        <item
+            android:id="@+id/bootstrap"
+            android:icon="@drawable/ic_bootstrap"
+            android:title="Bootstrap" />
+        <item
+            android:id="@+id/java"
+            android:icon="@drawable/ic_java"
+            android:title="Java" />
+        <item
+            android:id="@+id/json"
+            android:icon="@drawable/ic_json"
+            android:title="JSON" />
+        <item
+            android:id="@+id/xml"
+            android:icon="@drawable/ic_xml"
+            android:title="XML" />
+        <item
+            android:id="@+id/sql"
+            android:icon="@drawable/ic_sql"
+            android:title="SQL" />
+        <item
+            android:id="@+id/nodejs"
+            android:icon="@drawable/ic_nodejs"
+            android:title="NodeJS" />
+        <item
+            android:id="@+id/python"
+            android:icon="@drawable/ic_python"
+            android:title="Python" />
     </group>
 
     <item android:title="@string/menu">

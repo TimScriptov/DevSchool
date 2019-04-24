@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.support.v7.preference.PreferenceManager;
 
 import com.devschool.App;
+import com.devschool.R;
 
 public final class Preferences {
 
@@ -27,5 +28,13 @@ public final class Preferences {
 
     public static boolean isRated() {
         return preferences.getBoolean("isRated", false);
+    }
+
+    public static int getCheckedItemId() {
+        return preferences.getInt("checkedItemId", R.id.html);
+    }
+
+    public static void setCheckedItemId(int id) {
+        preferences.edit().putInt("checkedItemId", id).apply();
     }
 }

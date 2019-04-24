@@ -30,6 +30,36 @@ public class ListParser {
                         break;
                     case CSS:
                         raw_id = R.raw.css_items;
+                        break;
+                    case JavaScript:
+                        raw_id = R.raw.js_items;
+                        break;
+                    case jQuery:
+                        raw_id = R.raw.jquery_items;
+                        break;
+                    case PHP:
+                        raw_id = R.raw.php_items;
+                        break;
+                    case SQL:
+                        raw_id = R.raw.sql_items;
+                        break;
+                    case XML:
+                        raw_id = R.raw.xml_items;
+                        break;
+                    case Java:
+                        raw_id = R.raw.java_items;
+                        break;
+                    case JSON:
+                        raw_id = R.raw.json_items;
+                        break;
+                    case NodeJS:
+                        raw_id = R.raw.nodejs_items;
+                        break;
+                    case Python:
+                        raw_id = R.raw.python_items;
+                        break;
+                    case Bootstrap:
+                        raw_id = R.raw.bootstrap_items;
                 }
                 InputStream is = App.getContext().getResources().openRawResource(raw_id);
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -51,6 +81,6 @@ public class ListParser {
     }
 
     public enum Type {
-        HTML, CSS
+        HTML, CSS, JavaScript, jQuery, PHP, Bootstrap, Java, JSON, XML, SQL, NodeJS, Python
     }
 }

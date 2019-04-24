@@ -38,6 +38,8 @@ import es.dmoral.toasty.Toasty;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.devschool.data.Constants.PREMIUM;
+import static com.devschool.data.Preferences.getCheckedItemId;
+import static com.devschool.data.Preferences.setCheckedItemId;
 
 public class MainActivity extends AppCompatActivity implements MainView, NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener, BillingProcessor.IBillingHandler {
     private DrawerLayout drawer;
@@ -77,7 +79,9 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
 
         ads = new Ads();
         billing = new BillingProcessor(this, null, this);
-        setTitle("HTML");
+
+        navigationView.setCheckedItem(getCheckedItemId());
+        onNavigationItemSelected(navigationView.getCheckedItem());
     }
 
     @Override
@@ -100,16 +104,79 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
 
     @Override
     public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-        switch (item.getItemId()) {
+        int id = item.getItemId();
+        switch (id) {
             case R.id.html:
                 listAdapter = new ListParser(ListParser.Type.HTML, this).getListAdapter();
                 listItems.setAdapter(listAdapter);
                 setTitle("HTML");
+                setCheckedItemId(id);
                 break;
             case R.id.css:
                 listAdapter = new ListParser(ListParser.Type.CSS, this).getListAdapter();
                 listItems.setAdapter(listAdapter);
                 setTitle("CSS");
+                setCheckedItemId(id);
+                break;
+            case R.id.js:
+                listAdapter = new ListParser(ListParser.Type.JavaScript, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("JavaScript");
+                setCheckedItemId(id);
+                break;
+            case R.id.jquery:
+                listAdapter = new ListParser(ListParser.Type.jQuery, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("jQuery");
+                setCheckedItemId(id);
+                break;
+            case R.id.php:
+                listAdapter = new ListParser(ListParser.Type.PHP, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("PHP");
+                setCheckedItemId(id);
+                break;
+            case R.id.bootstrap:
+                listAdapter = new ListParser(ListParser.Type.Bootstrap, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("Bootstrap");
+                setCheckedItemId(id);
+                break;
+            case R.id.java:
+                listAdapter = new ListParser(ListParser.Type.Java, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("Java");
+                setCheckedItemId(id);
+                break;
+            case R.id.json:
+                listAdapter = new ListParser(ListParser.Type.JSON, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("JSON");
+                setCheckedItemId(id);
+                break;
+            case R.id.xml:
+                listAdapter = new ListParser(ListParser.Type.XML, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("XML");
+                setCheckedItemId(id);
+                break;
+            case R.id.sql:
+                listAdapter = new ListParser(ListParser.Type.SQL, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("SQL");
+                setCheckedItemId(id);
+                break;
+            case R.id.nodejs:
+                listAdapter = new ListParser(ListParser.Type.NodeJS, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("NodeJS");
+                setCheckedItemId(id);
+                break;
+            case R.id.python:
+                listAdapter = new ListParser(ListParser.Type.Python, this).getListAdapter();
+                listItems.setAdapter(listAdapter);
+                setTitle("Python");
+                setCheckedItemId(id);
                 break;
             case R.id.nav_bookmarks:
                 new BookmarksFragment().show(getSupportFragmentManager(), null);

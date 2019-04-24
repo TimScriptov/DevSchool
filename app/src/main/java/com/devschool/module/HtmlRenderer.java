@@ -62,6 +62,7 @@ public class HtmlRenderer {
         htmlDocument.getElementsByAttributeValueContaining("src", "snigelweb").remove();
         htmlDocument.getElementsByAttributeValueContaining("src", "snhb").remove();
         htmlDocument.getElementsByAttributeValueContaining("src", "w3schools_footer").remove();
+        htmlDocument.getElementsByAttributeValue("target", "_blank").remove();
         return htmlDocument;
     }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+    <item src="jquery/jquery_intro.asp">jQuery Intro</item>
+    <item src="jquery/jquery_get_started.asp">jQuery Get Started</item>
+    <item src="jquery/jquery_syntax.asp">jQuery Syntax</item>
+    <item src="jquery/jquery_selectors.asp">jQuery Selectors</item>
+    <item src="jquery/jquery_events.asp">jQuery Events</item>
+    <item src="jquery/jquery_hide_show.asp">jQuery Hide/Show</item>
+    <item src="jquery/jquery_fade.asp">jQuery Fade</item>
+    <item src="jquery/jquery_slide.asp">jQuery Slide</item>
+    <item src="jquery/jquery_animate.asp">jQuery Animate</item>
+    <item src="jquery/jquery_stop.asp">jQuery stop()</item>
+    <item src="jquery/jquery_callback.asp">jQuery Callback</item>
+    <item src="jquery/jquery_chaining.asp">jQuery Chaining</item>
+    <item src="jquery/jquery_dom_get.asp">jQuery Get</item>
+    <item src="jquery/jquery_dom_set.asp">jQuery Set</item>
+    <item src="jquery/jquery_dom_add.asp">jQuery Add</item>
+    <item src="jquery/jquery_dom_remove.asp">jQuery Remove</item>
+    <item src="jquery/jquery_css_classes.asp">jQuery CSS Classes</item>
+    <item src="jquery/jquery_css.asp">jQuery css()</item>
+    <item src="jquery/jquery_dimensions.asp">jQuery Dimensions</item>
+    <item src="jquery/jquery_traversing.asp">jQuery Traversing</item>
+    <item src="jquery/jquery_traversing_ancestors.asp">jQuery Ancestors</item>
+    <item src="jquery/jquery_traversing_descendants.asp">jQuery Descendants</item>
+    <item src="jquery/jquery_traversing_siblings.asp">jQuery Siblings</item>
+    <item src="jquery/jquery_traversing_filtering.asp">jQuery Filtering</item>
+    <item src="jquery/jquery_ajax_intro.asp">jQuery AJAX Intro</item>
+    <item src="jquery/jquery_ajax_load.asp">jQuery Load</item>
+    <item src="jquery/jquery_ajax_get_post.asp">jQuery Get/Post</item>
+    <item src="jquery/jquery_noconflict.asp">jQuery noConflict()</item>
+    <item src="jquery/jquery_filters.asp">jQuery Filters</item>
+    <item src="jquery/jquery_ref_overview.asp">jQuery Overview</item>
+    <item src="jquery/jquery_ref_selectors.asp">jQuery Selectors</item>
+    <item src="jquery/jquery_ref_events.asp">jQuery Events</item>
+    <item src="jquery/jquery_ref_effects.asp">jQuery Effects</item>
+    <item src="jquery/jquery_ref_html.asp">jQuery HTML/CSS</item>
+    <item src="jquery/jquery_ref_traversing.asp">jQuery Traversing</item>
+    <item src="jquery/jquery_ref_ajax.asp">jQuery AJAX</item>
+    <item src="jquery/jquery_ref_misc.asp">jQuery Misc</item>
+    <item src="jquery/jquery_ref_prop.asp">jQuery Properties</item>
+</list>
