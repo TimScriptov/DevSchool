@@ -24,11 +24,11 @@ import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.Constants;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devschool.adapters.ListAdapter;
+import com.devschool.adapters.ListParser;
 import com.devschool.data.Preferences;
 import com.devschool.module.Ads;
 import com.devschool.ui.BookmarksFragment;
-import com.devschool.utils.Dialogs;
-import com.devschool.utils.ListParser;
+import com.devschool.ui.Dialogs;
 import com.devschool.utils.Utils;
 import com.devschool.view.MainView;
 
@@ -152,10 +152,11 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     @Override
     public void openLesson(String url, int position) {
         if (Utils.isNetworkAvailable()) {
-            startActivityForResult(new Intent(this, ItemActivity.class)
+            startActivityForResult(new Intent(this, LessonActivity.class)
                     .putExtra("url", url)
                     .putExtra("itemsCount", listAdapter.getItemCount())
                     .putExtra("itemsSrc", listAdapter.getItemsSrc())
+                    .putExtra("isPremium", billing.isPurchased(PREMIUM))
                     .putExtra("position", position), REQUEST_CODE_IS_READ);
         } else Dialogs.error(this, getString(R.string.no_connection));
     }

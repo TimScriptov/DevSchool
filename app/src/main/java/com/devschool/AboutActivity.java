@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.devschool.utils.Dialogs;
+import com.devschool.ui.Dialogs;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 

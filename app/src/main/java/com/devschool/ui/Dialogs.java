@@ -1,4 +1,4 @@
-package com.devschool.utils;
+package com.devschool.ui;
 
 import android.content.Context;
 import android.content.Intent;

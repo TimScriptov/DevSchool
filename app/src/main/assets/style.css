@@ -4,9 +4,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 div.w3-example{
-    background-color: #fafafa;
+    background-color: #fafafa!important;
     margin: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    padding-bottom: 15px;
 }
-#google_translate_element{margin-top: 20px;}
+#google_translate_element{margin-top: 25px; margin-left: 10px;}

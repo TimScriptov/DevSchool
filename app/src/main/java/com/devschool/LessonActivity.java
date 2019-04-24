@@ -14,14 +14,16 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
 import com.devschool.data.Bookmarks;
-import com.devschool.utils.Dialogs;
+import com.devschool.module.Ads;
+import com.devschool.module.HtmlRenderer;
+import com.devschool.ui.Dialogs;
 import com.devschool.utils.FileReader;
-import com.devschool.utils.HtmlRenderer;
 import com.devschool.utils.ItemUtils;
-import com.devschool.utils.NestedWebView;
 import com.devschool.utils.Utils;
+import com.devschool.view.NestedWebView;
 
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
@@ -29,7 +31,7 @@ import java.util.ArrayList;
 
 import static com.devschool.utils.ItemUtils.isRead;
 
-public class ItemActivity extends AppCompatActivity implements View.OnClickListener {
+public class LessonActivity extends AppCompatActivity implements View.OnClickListener {
     private NestedWebView webView;
     private FloatingActionButton prev_item, next_item, bookmark;
     private CollapsingToolbarLayout ctl;
@@ -37,11 +39,12 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
     private int itemsCount;
     private long time = System.currentTimeMillis();
     private ArrayList<String> itemsSrc;
+    private Ads ads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item);
+        setContentView(R.layout.activity_lesson);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ctl = findViewById(R.id.collapsing_toolbar);
@@ -60,6 +63,12 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         itemsSrc = (ArrayList<String>) getIntent().getSerializableExtra("itemsSrc");
 
         new PageLoader(getIntent().getStringExtra("url")).execute();
+
+        boolean isPremium = getIntent().getBooleanExtra("isPremium", false);
+        if (!isPremium) {
+            ads = new Ads();
+            ((LinearLayout) findViewById(R.id.adLayout)).addView(ads.getBanner(this));
+        }
     }
 
     @Override
@@ -121,8 +130,6 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
             bookmark.setVisibility(View.GONE);
             prev_item.setVisibility(View.GONE);
             next_item.setVisibility(View.GONE);
-//            prev_item.setVisibility(itemPosition != 0 ? View.VISIBLE : View.GONE);
-//            next_item.setVisibility(itemPosition != itemsCount - 1 ? View.VISIBLE : View.GONE);
         }
 
         @SuppressLint("RestrictedApi")
@@ -165,7 +172,6 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
             webView.loadDataWithBaseURL(link, html, "text/html", "UTF-8", link);
         }
     }

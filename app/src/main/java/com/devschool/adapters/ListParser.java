@@ -1,8 +1,7 @@
-package com.devschool.utils;
+package com.devschool.adapters;
 
 import com.devschool.App;
 import com.devschool.R;
-import com.devschool.adapters.ListAdapter;
 import com.devschool.data.Constants;
 import com.devschool.view.MainView;
 
