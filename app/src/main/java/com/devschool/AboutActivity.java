@@ -39,7 +39,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
                 Dialogs.rate(this);
                 break;
             case R.id.moreApps:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:Ramzan Elmurzaev")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:Иван Тимашков")));
                 break;
             case R.id.privacy:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://elmurzaev.github.io/privacy/privacy_policy_ds.html")));
