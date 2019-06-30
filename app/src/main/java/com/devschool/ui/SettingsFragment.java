@@ -2,9 +2,10 @@ package com.devschool.ui;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.PreferenceFragmentCompat;
+
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.preference.ListPreference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.devschool.R;
 import com.devschool.module.DayNight;

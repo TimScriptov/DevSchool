@@ -3,7 +3,8 @@ package com.devschool;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
-import android.support.v7.app.AppCompatDelegate;
+
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.devschool.module.Ads;
 import com.devschool.module.DayNight;

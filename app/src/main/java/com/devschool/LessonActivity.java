@@ -6,17 +6,15 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.BaseTransientBottomBar;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.devschool.data.Bookmarks;
 import com.devschool.module.Ads;
@@ -26,6 +24,8 @@ import com.devschool.utils.FileReader;
 import com.devschool.utils.ItemUtils;
 import com.devschool.utils.Utils;
 import com.devschool.view.NestedWebView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
@@ -93,10 +93,10 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
                 bookmark.hide();
                 if (Bookmarks.isBookmarked(webView.getUrl())) {
                     Bookmarks.remove(webView.getUrl());
-                    Snackbar.make(webView, R.string.bookmark_removed, BaseTransientBottomBar.LENGTH_SHORT).show();
+                    Snackbar.make(webView, R.string.bookmark_removed, Snackbar.LENGTH_SHORT).show();
                     bookmark.setImageResource(R.drawable.ic_star_white);
                 } else if (Bookmarks.add(webView.getUrl(), webView.getTitle())) {
-                    Snackbar.make(webView, R.string.bookmarked, BaseTransientBottomBar.LENGTH_SHORT).show();
+                    Snackbar.make(webView, R.string.bookmarked, Snackbar.LENGTH_SHORT).show();
                     bookmark.setImageResource(R.drawable.ic_star_yellow);
                 }
                 bookmark.show();

@@ -3,10 +3,11 @@ package com.devschool.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RatingBar;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.devschool.R;
 import com.devschool.data.Preferences;

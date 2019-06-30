@@ -39,9 +39,9 @@
             android:label="@string/about"
             android:parentActivityName=".MainActivity" />
 
-        <!--meta-data
+        <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9961237670339903~5243797362" /-->
+            android:value="ca-app-pub-9961237670339903~5243797362" />
     </application>
 
 </manifest>

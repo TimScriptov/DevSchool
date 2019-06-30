@@ -2,7 +2,8 @@ package com.devschool.module;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.support.v7.app.AppCompatDelegate;
+
+import androidx.appcompat.app.AppCompatDelegate;
 
 import org.jetbrains.annotations.NotNull;
 
