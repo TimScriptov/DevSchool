@@ -37,6 +37,6 @@ public class App extends Application {
                                 .build()))
                 .build());
         AppCompatDelegate.setDefaultNightMode(DayNight.getUserSlectedMode());
-        Ads.initialize(this);
+//        Ads.initialize(this);  TODO: ENABLE ADS
     }
 }

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     private int REQUEST_CODE_IS_READ = 1;
     private BillingProcessor billing;
     private ListAdapter listAdapter;
-    private Ads ads;
+//    private Ads ads; TODO: ENABLE ADS
     private RecyclerView listItems;
 
     @Override
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
         listItems.setLayoutManager(new LinearLayoutManager(this));
         listItems.setAdapter(listAdapter);
 
-        ads = new Ads();
+//        ads = new Ads(); TODO: ENABLE ADS
         billing = new BillingProcessor(this, null, this);
 
         navigationView.setCheckedItem(getCheckedItemId());
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
     @Override
     public void onBillingInitialized() {
         if (!billing.isPurchased(PREMIUM)) {
-            ads.loadInterstitial(this);
+//            ads.loadInterstitial(this); TODO: ENABLE ADS
             fab.show();
         }
     }
@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Navigat
             }
             if (!Preferences.isRated()) Dialogs.rate(this);
             else if (!billing.isPurchased(PREMIUM)) {
-                ads.showInsAd();
+//                ads.showInsAd(); TODO: ENABLE ADS
             }
         }
     }

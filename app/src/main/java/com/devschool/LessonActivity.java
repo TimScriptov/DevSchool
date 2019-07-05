@@ -41,7 +41,7 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
     private int itemsCount;
     private long time = System.currentTimeMillis();
     private ArrayList<String> itemsSrc;
-    private Ads ads;
+//    private Ads ads;  TODO: ENABLE ADS
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +70,10 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
         new PageLoader(getIntent().getStringExtra("url")).execute();
 
         boolean isPremium = getIntent().getBooleanExtra("isPremium", false);
-        if (!isPremium) {
-            ads = new Ads();
-            ((LinearLayout) findViewById(R.id.adLayout)).addView(ads.getBanner(this));
-        }
+//        if (!isPremium) {
+//            ads = new Ads();
+//            ((LinearLayout) findViewById(R.id.adLayout)).addView(ads.getBanner(this));  TODO: ENABLE ADS
+//        }
     }
 
     @Override
